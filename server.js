@@ -94,16 +94,14 @@ app.post('/users', async (req, res) => {
     const flaskAPIResponse = await axios.post(flaskAPIUrl, flaskAPIData);
 
     // Menggunakan respons dari Flask API
-    const output = flaskAPIResponse.data; // Menyimpan output prediksi dari Flask API
-    console.log(output);
+    console.log(flaskAPIResponse.data);
 
     res.json({
       message: 'Data berhasil diterima',
       testType,
       testTopic,
       testTopicSub,
-      testDif,
-      output // Menambahkan output prediksi ke respons JSON
+      testDif
     });
   } catch (error) {
     console.error(error);
